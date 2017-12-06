@@ -1,0 +1,5 @@
+利用所有训练样本的姿态时空特征训练GMM码书
+traindata_gmm.m主要是为了把所有相同类型的训练样本的姿态特征写入同一txt文件，用于GMM训练
+GMM的训练使用./src/train_gmm命令，使用方法是：Usage: ./src/train_gmm inputData outputCodeBook numClusters
+
+

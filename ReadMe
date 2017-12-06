@@ -1,0 +1,18 @@
+Human Action Recognition Based on Pose Spatio-Temporal Features
+训练阶段
+1、根据关节坐标计算高层次姿态特征：进入compute_pose文件夹，运行demo_compute_pose_dataset.m,输入是一系列视频的关节坐标的样本路径列表文件，输出是生成mat矩阵保存在对应路径下;然后运行pose_features_txt.m将不同类型的特征写入文本中保存；
+2、利用训练样本训练GMM码本：进入train_gmm文件夹，先运行traindata_gmm.m，生成不同类型的训练样本的训练数据，输入是训练样本的路径列表文件；然后在命令行中输入命令，利用train_gmm命令训练码本，命令参考train_gmm_command
+3、利用GMM码本计算fisher vector特征：进入compute_fv，新建项目，main.cpp为主函数，输入是样本路径列表文件，程序会自动读取路径下各种类型的姿态时空特征，同时输入GMM码本，将姿态特征编码为固定维度的FV特征;
+4、对各种类型的fv特征加权融合:进入fv_weight文件夹，利用compute_fv_weight计算特征的权重，并加权融合。
+5、利用liblinear svm进行训练：进入svm_classification文件夹，首先进行训练和测试数据准备，sam_format.cpp将视频固定维度的特征数据转化为调用liblinear需要的数据格式；然后调用liblinear-2.1/train和predict命令进行训练和测试.
+测试阶段
+少了第2步，训练GMM码本的过程。在第六步进行测试。
+
+
+致谢：
+
+LIBLINEAR:
+R.-E. Fan, K.-W. Chang, C.-J. Hsieh, X.-R. Wang, and C.-J. Lin.
+LIBLINEAR: A Library for Large Linear Classification, Journal of
+Machine Learning Research 9(2008), 1871-1874. Software available at
+http://www.csie.ntu.edu.tw/~cjlin/liblinear

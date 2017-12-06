@@ -1,0 +1,3 @@
+文件夹功能：对分类特征利用linear SVM进行特征分类。
+首先，利用svm_format.cpp将训练样本和测试样本的分类特征转化为linear svm要求的数据格式；
+然后调用 ./liblinear-2.1/train， ./liblinear-2.1/predict命令进行模型训练和测试。

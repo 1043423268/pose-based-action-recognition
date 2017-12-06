@@ -1,0 +1,4 @@
+ ./liblinear-2.1/train ./split3/trainset_svm_split3.txt ./split3/trainset_svm_split3.model
+ ./liblinear-2.1/predict ./split3/testset_svm_split3.txt ./split3/trainset_svm_split3.model ./split3/testset_result_split3.txt
+
+
